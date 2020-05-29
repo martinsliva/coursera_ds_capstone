@@ -1,0 +1,67 @@
+---
+title: "Word Predictor"
+subtitle: "Coursera Data Science Capstone"
+author: "Martin Slíva"
+date: 2020-05-27
+footer: "Martin Slíva, cc"
+
+output: 
+  revealjs::revealjs_presentation:
+    theme: beige
+    highlight: pygments
+    center: false
+    transition: convex
+    
+    
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+##  Overview 
+
+- The application  **WordPredictor** is trying to guess next word while you are typing into input box.
+- Application was developed as a capstone project of **[Coursera Data Science Specialization](https://www.coursera.org/specializations/jhu-data-science)** led by **[Johns Hopkins University](https://www.jhu.edu/)**.
+- Data used for the project was taken from Coursera project site.
+- List of bad-words used for data cleaning was downloaded from [Carnegie Mellon University](http://www.cs.cmu.edu/~biglou/resources/bad-words.txt).
+
+
+## Algorithm
+
+- Application uses [Stupid Backoff](https://www.aclweb.org/anthology/D07-1090.pdf) algorithm.
+- Based on last four words in input it searches in stored five-words combinations (5-grams) and finds the most probable 5 words as output candidate with their probability taken as a score.
+- Next it searches last three input word in stored four-words combinations (4-grams) and finds the most probable 5 words with their probability. The probability is multiplied by constant $0.4$ and taken as a score of next output candidates.
+- The same is done for last two words and last word with multiplication constant $0.4^2$ and $0.4^3$.
+- At the end the algorithm returns five words from output candidates with highest scores.
+
+## Data
+
+Application data was cleaned in few steps:
+
+1. On the input only letters and apostrophe was considered for next processing.
+2. Input text was split to words and only words witch covers **95%** of text were considered. The words with the lowest probability which covers together **5%** of input text and bad-words were substituted by special token.
+3. Combinations  of 2-5 words (n-grams) was created and probability was computed for all word combinations form cleaned words. 
+4. And all those word combinations was again cleaned - combinations with the lowest probability was removed to reduce file size.
+
+
+
+## Application Approach
+1. Application reads text, removes numbers and non ASCII characters and parse input into words.
+2. Words are compared with internal vocabulary (1-gram) and if input word does not match with the vocabulary application tries to guess the word. If the guess is not successful than special token is used instead of input word.
+3. The  new prediction is chosen by the algorithm based on the last four words of the text. 
+4. If the last input word does not match vocabulary than the guess of the word is added to output candidate.
+5. Output can be extend by the most probable words if the number of output candidates is not sufficient.
+
+
+## Application
+
+- Application was tested on **100 000** randomly chosen chunks of text from source files.  
+
+- Success rate of application was **18.11%**.
+
+-  **[Link to application](https://msliva.shinyapps.io/WordPredict/)**.  
+- Simply type your sentence to input box and application propose 5 most probable words on the right side.  **Enjoy!**
+
+- Source code can be found in **[github](some link)**. 
