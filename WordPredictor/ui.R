@@ -70,7 +70,7 @@ shinyUI(fluidPage(
                  h4("Overview"),
                  br(),
                  p("Application WordPredictor is trying to guess next word while you are typing into input box."),
-                 p("Application was developed as a capstone project of Coursera Data Science Specialization lead by Johns Hopkins University."),
+                 p("Application was developed as a capstone project of Coursera Data Science Specialization led by Johns Hopkins University."),
                  br(),
                  br(),
                  h4("Slide deck"),
