@@ -12,7 +12,7 @@ shinyUI(fluidPage(
     theme = shinytheme("darkly"),
     
     # Application title
-    titlePanel("Word Prediction Application"),
+    titlePanel("Word Predictor"),
     
     
     tabsetPanel(
