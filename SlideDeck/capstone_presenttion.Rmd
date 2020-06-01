@@ -64,4 +64,4 @@ The application data were cleaned in a few steps:
 -  **[Link to the application](https://msliva.shinyapps.io/WordPredict/)**.  
 - Simply type your sentence in the input box and the application will propose five most probable words. **Enjoy!**
 
-- The source code can be found in **[github](https://github.com/martinsliva/coursera_ds_capstonesome link)**. 
+- The source code can be found in **[github](https://github.com/martinsliva/coursera_ds_capstone)**. 
